@@ -23,13 +23,14 @@ exports.run = async (client, interaction) => {
     for (const emoji of emojis) {
       const emo = await guild.emojis.create(emoji, normalizeName(emoji));
       responeMessage.push(`<a:${emo.name}:${emo.id}>`);
-      console.log(`Loaded ${emo.name}`);
     }
+    channel.send(
+      responseMessage.length > 0 ? responeMessage.join(" ") : "No emojis found"
+    );
   } catch (error) {
     console.log(error);
   } finally {
     await interaction.editReply("Done!");
-    channel.send(responeMessage.join(" "));
   }
 };
 
