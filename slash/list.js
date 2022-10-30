@@ -3,7 +3,9 @@ exports.run = async (client, interaction) => {
   await interaction.deferReply();
   const reply = await interaction.channel.guild.emojis.fetch();
 
-  const emojis = reply.map((e) => `<a:${e.name}:${e.id}>`).join(" ");
+  const emojis = reply
+    .map((e) => (e.animated ? `<a:${e.name}:${e.id}>` : `<:${e.name}:${e.id}>`))
+    .join(" ");
 
   await interaction.editReply(emojis);
 };

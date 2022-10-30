@@ -1,5 +1,4 @@
 exports.run = async (client, interaction) => {
-  // eslint-disable-line no-unused-vars
   await interaction.deferReply();
   const reply = await interaction.editReply("Ping?");
   await interaction.editReply(
@@ -16,8 +15,6 @@ exports.commandData = {
   defaultPermission: true,
 };
 
-// Set guildOnly to true if you want it to be available on guilds only.
-// Otherwise false is global.
 exports.conf = {
   permLevel: "User",
   guildOnly: false,
